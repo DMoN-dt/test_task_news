@@ -1,0 +1,32 @@
+# encoding: UTF-8
+
+doctype html
+html[lang="ru"]
+  head
+    meta[charset="utf-8"]
+    meta[http-equiv="Content-Type" content="text/html; charset=utf-8"]
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    = csrf_meta_tags
+	= action_cable_meta_tag
+    
+    = stylesheet_link_tag   'application', media: 'all'
+  
+  body
+    nav.navbar.navbar-toggleable-md.navbar-light.bg-faded
+      a.navbar-brand(href="/")News Feed
+      = link_to "Админка", admin_path, :class => "btn btn-success"
+    
+    .content.container
+      .row
+        .col-md-12
+          - if !alert.blank?
+            .alert.alert-danger
+              = alert
+          - if !notice.blank?
+            #flash_notice.alert.alert-success
+              = notice
+              <script>setTimeout(function(){document.getElementById('flash_notice').style.display = 'none';},3500);</script>
+          
+          #app
+    
+    = javascript_pack_tag  'app-entry-client'

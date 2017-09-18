@@ -1,0 +1,7 @@
+:schedule:
+  read_rss_feed:
+    enabled: true
+    every: ['30s', first_in: '5s']
+    queue: default
+    class: RssFeedWorker
+    description: 'This job fetches news from a yandex rss feed'

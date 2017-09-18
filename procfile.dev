@@ -1,0 +1,5 @@
+redis:             redis-server
+sidekiq_worker:    bundle exec sidekiq
+backend:           bundle exec rails s -b 0.0.0.0 -p 5000
+# watcher:         ./bin/webpack-watcher
+frontend:          ./bin/webpack-dev-server
